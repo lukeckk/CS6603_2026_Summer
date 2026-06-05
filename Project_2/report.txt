@@ -1,0 +1,36 @@
+1.1 
+2019 Mental health dataset
+
+2.1
+- identify independent variables that wont affect the 3 dependant variables and remove them
+- remove empty rows or rows that wont have enough into to affect dpeendant variables
+- see if any missing value to be handled by grabbing mean
+- remove any duplicates
+- convert datatype? like yes no to 0 1
+
+2.2
+
+2.3
+
+2.4
+
+2.5
+
+3. Graphs 
+
+3.1
+- what is protected class variables
+
+4. Data manipulation
+- Fair Graph
+- Bias Graph
+
+5. Average Table
+- create Table
+- create random sampling method using 50% of dataset
+
+6. Repeat step 3 using reduced dataset
+
+
+
+
