@@ -1,0 +1,11 @@
+# Large binary files - course materials
+materials/*.pdf
+materials/*.zip
+
+# Office documents
+*.docx
+*.pptx
+*.xlsx
+
+# macOS
+.DS_Store

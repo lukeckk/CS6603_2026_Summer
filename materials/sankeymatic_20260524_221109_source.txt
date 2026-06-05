@@ -1,0 +1,98 @@
+// SankeyMATIC diagram inputs - Saved: 5/24/2026, 10:11:09 PM
+// https://sankeymatic.com/build/
+
+// === Nodes and Flows ===
+
+Fashion [4] Relevant
+Fashion [14] Meh
+Fashion [54] No Way
+
+Fitness [13] Relevant
+Fitness [9] Meh
+Fitness [37] No Way
+
+Outdoors [6] Relevant
+Outdoors [5] Meh
+Outdoors [14] No Way
+
+Tech [0] Relevant
+Tech [3] Meh
+Tech [23] No Way
+
+Travel [0] Relevant
+Travel [6] Meh
+Travel [13] No Way
+
+Food [3] Relevant
+Food [1] Meh
+Food [15] No Way
+
+Health [1] Relevant
+Health [2] Meh
+Health [14] No Way
+
+Entertainment [2] Relevant
+Entertainment [3] Meh
+Entertainment [20] No Way
+
+Finance [0] Relevant
+Finance [3] Meh
+Finance [10] No Way
+
+Other [5] Relevant
+Other [2] Meh
+Other [18] No Way
+
+// === Settings ===
+
+size w 600
+ h 600
+margin l 12
+ r 12
+ t 18
+ b 20
+bg color #ffffff
+ transparent N
+node w 12
+ h 50
+ spacing 75
+ border 0
+ theme a
+ color #888888
+ opacity 1
+flow curvature 0.5
+ inheritfrom outside-in
+ color #999999
+ opacity 0.45
+layout order automatic
+ justifyorigins N
+ justifyends N
+ reversegraph N
+ attachincompletesto nearest
+labels color #000000
+ hide N
+ highlight 0.75
+ fontface sans-serif
+ linespacing 0.2
+ relativesize 110
+ magnify 100
+labelname appears Y
+ size 16
+ weight 400
+labelvalue appears Y
+ fullprecision Y
+ position below
+ weight 400
+labelposition autoalign 0
+ scheme auto
+ first before
+ breakpoint 3
+value format ',.'
+ prefix ''
+ suffix ''
+themeoffset a 6
+ b 0
+ c 0
+ d 0
+meta mentionsankeymatic Y
+ listimbalances Y

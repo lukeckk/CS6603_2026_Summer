@@ -1,0 +1,301 @@
+#,Advertiser Name,Category,Relevancy
+1,H&M,Fashion,3
+2,Boot Barn,Fashion,3
+3,Browns Shoes,Fashion,3
+4,Brooklyn Industries,Fashion,3
+5,Everlane,Fashion,3
+6,Birkenstock,Fashion,3
+7,Zappos.com,Fashion,1
+8,Timberland,Fashion,2
+9,Blundstone US,Fashion,3
+10,ASOS,Fashion,3
+11,PacSun,Fashion,2
+12,CONVERSE,Fashion,2
+13,Fashion Nova,Fashion,3
+14,SKECHERS,Fashion,3
+15,Urban Outfitters,Fashion,3
+16,Lee Jeans,Fashion,3
+17,Old Navy,Fashion,3
+18,Dr. Martens,Fashion,1
+19,Wolverine Boots & Apparel,Fashion,3
+20,Blue Delta Jean Co.,Fashion,3
+21,COS,Fashion,3
+22,Tommy John,Fashion,3
+23,Elwood Clothing,Fashion,3
+24,Bershka,Fashion,3
+25,Stuart Weitzman,Fashion,3
+26,Thursday Boot Company,Fashion,2
+27,FARFETCH,Fashion,3
+28,Clarks Shoes,Fashion,2
+29,SOREL,Fashion,3
+30,DSW Designer Shoe Warehouse,Fashion,3
+31,Gap,Fashion,3
+32,J.Crew,Fashion,3
+33,Calvin Klein,Fashion,3
+34,kate spade new york,Fashion,2
+35,American Eagle,Fashion,3
+36,Banana Republic,Fashion,3
+37,Dickies,Fashion,2
+38,Nordstrom Rack,Fashion,2
+39,MR PORTER,Fashion,2
+40,Coach,Fashion,2
+41,UNIQLO USA,Fashion,1
+42,Vans,Fashion,2
+43,DUER Performance,Fashion,3
+44,ECCO,Fashion,3
+45,Macy's,Fashion,3
+46,Carhartt,Fashion,3
+47,Fossil,Fashion,3
+48,Tiffany & Co.,Fashion,3
+49,StockX,Fashion,2
+50,LOFT,Fashion,3
+51,Hat Club,Fashion,3
+52,Outerknown,Fashion,3
+53,Express,Fashion,3
+54,Men's Wearhouse,Fashion,3
+55,Hamilton Watch,Fashion,3
+56,Flex Watches,Fashion,3
+57,Poshmark,Fashion,1
+58,G-STAR,Fashion,3
+59,Industrie Clothing,Fashion,3
+60,RZE Watches,Fashion,3
+61,Duke + Dexter,Fashion,3
+62,maharishi,Fashion,3
+63,Civil Clothing,Fashion,3
+64,Maison Kitsune,Fashion,3
+65,Brilliant Earth,Fashion,3
+66,Highsnobiety,Fashion,2
+67,ZALORA,Fashion,3
+68,Richemont,Fashion,3
+69,Uniqlo Canada,Fashion,2
+70,Redcast Heritage Co.,Fashion,3
+71,Altra Running,Fitness,1
+72,Vivobarefoot,Fitness,1
+73,Xero Shoes,Fitness,1
+74,TYR Sport,Fitness,1
+75,District Vision,Fitness,3
+76,Vanquish Fitness,Fitness,1
+77,Superfeet Worldwide,Fitness,3
+78,Notorious Lift,Fitness,3
+79,Fleet Feet,Fitness,2
+80,NOBULL,Fitness,2
+81,Nike,Fitness,1
+82,ASICS,Fitness,1
+83,ASICS New Zealand,Fitness,3
+84,Saucony,Fitness,3
+85,OOFOS,Fitness,3
+86,On,Fitness,1
+87,Brooks Running,Fitness,3
+88,New Balance,Fitness,1
+89,adidas,Fitness,1
+90,PUMA,Fitness,2
+91,Reebok,Fitness,2
+92,Under Armour,Fitness,2
+93,lululemon,Fitness,2
+94,Gymshark,Fitness,1
+95,Alphalete,Fitness,1
+96,Vuori,Fitness,3
+97,Carbon38,Fitness,3
+98,Barbell Apparel,Fitness,3
+99,DICK'S Sporting Goods,Fitness,1
+100,Decathlon USA,Fitness,3
+101,Champs Sports,Fitness,3
+102,Finish Line,Fitness,2
+103,Foot Locker,Fitness,3
+104,Fanatics,Fitness,3
+105,YMCA of Pierce and Kitsap Counties,Fitness,3
+106,NordicTrack,Fitness,3
+107,Inaka Power,Fitness,3
+108,Strength Shop USA,Fitness,3
+109,Xendurance,Fitness,3
+110,The Tib Bar Guy,Fitness,3
+111,Mark Bell,Fitness,3
+112,Logainz Fitness LLC,Fitness,3
+113,HOKA EMEA,Fitness,3
+114,Commonwealth Running,Fitness,3
+115,RUDIS,Fitness,3
+116,Darn Tough Vermont Socks,Fitness,3
+117,Runtothefinish,Fitness,3
+118,Recov,Fitness,3
+119,TALEX Performance,Fitness,3
+120,Official Better Bodies,Fitness,3
+121,Brandon Clark Fitness,Fitness,3
+122,RetroMuscle Golden Era Dream,Fitness,3
+123,Peak Performance Co,Fitness,2
+124,Ekkovision,Fitness,3
+125,mikechangofficial,Fitness,3
+126,Fleet Feet Charleston,Fitness,3
+127,Torokhtiy Oleksiy,Fitness,3
+128,1664 gym,Fitness,2
+129,GRAMS28,Fitness,3
+130,REI,Outdoors,2
+131,Snow Peak,Outdoors,2
+132,Burton Snowboards,Outdoors,1
+133,ATOMIC SKIING,Outdoors,3
+134,Black Ember,Outdoors,2
+135,Arc'teryx,Outdoors,1
+136,Helly Hansen,Outdoors,3
+137,Oboz Footwear,Outdoors,3
+138,Merrell,Outdoors,3
+139,KEEN,Outdoors,3
+140,KEEN Utility,Outdoors,3
+141,Salomon,Outdoors,1
+142,Eddie Bauer,Outdoors,2
+143,La Sportiva,Outdoors,2
+144,The North Face,Outdoors,1
+145,L.L.Bean,Outdoors,3
+146,Huckberry,Outdoors,3
+147,Dainese,Outdoors,3
+148,Ikon Pass,Outdoors,3
+149,Jenson USA,Outdoors,3
+150,Matador,Outdoors,3
+151,ALPAKA,Outdoors,1
+152,Aer,Outdoors,1
+153,Fliteboard,Outdoors,3
+154,Restless Human,Outdoors,3
+155,Grammarly,Tech,3
+156,OMEN by HP,Tech,3
+157,Migaku Inc.,Tech,3
+158,Prusa Research 3D printers,Tech,3
+159,GoDaddy,Tech,2
+160,Velvet Caviar,Tech,3
+161,Sony Electronics,Tech,2
+162,Adobe,Tech,3
+163,MSI Gaming,Tech,3
+164,Nikon,Tech,3
+165,Databricks,Tech,2
+166,Back Market,Tech,3
+167,HP,Tech,3
+168,Lenovo United States,Tech,3
+169,Best Buy,Tech,3
+170,Canon USA,Tech,3
+171,Peak Design,Tech,3
+172,T-Mobile,Tech,3
+173,Canva,Tech,3
+174,Sennheiser,Tech,3
+175,PolarPro,Tech,3
+176,Ohsnap,Tech,3
+177,WolfBox,Tech,3
+178,Contour Design,Tech,3
+179,RedPocket Mobile,Tech,3
+180,Reality Labs,Tech,3
+181,Expedia,Travel,2
+182,priceline,Travel,3
+183,CALPAK,Travel,3
+184,Vrbo,Travel,3
+185,Alaska Airlines,Travel,3
+186,Norwegian Cruise Line,Travel,3
+187,Samsonite,Travel,3
+188,Airbnb,Travel,2
+189,Booking.com,Travel,2
+190,Skyscanner,Travel,2
+191,Turo,Travel,2
+192,Qatar Airways,Travel,3
+193,Malaysia Airlines,Travel,2
+194,Tripscout,Travel,3
+195,Marriott International,Travel,3
+196,Club Med,Travel,3
+197,Jetstar Australia,Travel,3
+198,CheapOair,Travel,3
+199,Wandrd,Travel,3
+200,Panda Express,Food,1
+201,Too Good To Go,Food,3
+202,Anthony's Restaurants,Food,3
+203,Kroger,Food,1
+204,Goldbelly,Food,3
+205,Papa Murphy's Pizza,Food,3
+206,Factor_,Food,3
+207,Habit Burger & Grill,Food,1
+208,STK Steakhouse,Food,3
+209,Instacart,Food,3
+210,Home Chef,Food,3
+211,Free Rein Coffee Company,Food,3
+212,Jimmy Dean,Food,2
+213,Joyard Cuisine & Bar,Food,3
+214,Steaz,Food,3
+215,Hollywood Ranch Market,Food,3
+216,YoloFoods Singapore,Food,3
+217,ZBiotics,Food,3
+218,iHerb,Health,1
+219,NIVEA,Health,3
+220,Sephora,Health,2
+221,GlassesUSA.com,Health,2
+222,tarte cosmetics,Health,3
+223,FragranceX.com,Health,3
+224,Dermalogica,Health,3
+225,Marek Health 3,Health,3
+226,Paul Saladino MD,Health,3
+227,Manta Sleep,Health,3
+228,Mobility Manual,Health,3
+229,DHC USA Inc.,Health,3
+230,oVertone,Health,3
+231,STYLEVANA,Health,3
+232,Breatheeze,Health,3
+233,Tempur-Pedic USA,Health,3
+234,Therighthairstyles.com,Health,3
+235,Hulu,Entertainment,1
+236,Cinemark USA,Entertainment,1
+237,Live Nation Concerts,Entertainment,2
+238,Paramount Pictures,Entertainment,3
+239,Disney,Entertainment,3
+240,CBS,Entertainment,2
+241,LINE WEBTOON,Entertainment,3
+242,Cirque du Soleil,Entertainment,3
+243,Woodland Park Zoo,Entertainment,3
+244,The Wall Street Journal,Entertainment,3
+245,Forbes Media LLC,Entertainment,3
+246,Axios,Entertainment,3
+247,Aniplex USA,Entertainment,3
+248,GKIDS,Entertainment,3
+249,Hypebeast,Entertainment,2
+250,Pabst Theater Group,Entertainment,3
+251,Nectar Lounge,Entertainment,3
+252,Skyline Comedy Club,Entertainment,3
+253,The Rock Boat,Entertainment,3
+254,Truckee Music Fest,Entertainment,3
+255,Steven Bartlett,Entertainment,3
+256,Limelight Belfast,Entertainment,3
+257,Disney Streaming,Entertainment,3
+258,Big Night Entertainment Group,Entertainment,3
+259,San Diego Bayfest,Entertainment,3
+260,Chase,Finance,2
+261,BECU,Finance,2
+262,Veterans United,Finance,3
+263,Opendoor,Finance,3
+264,Apartments.com,Finance,3
+265,Realtor.com,Finance,3
+266,PayPal Honey,Finance,3
+267,TaxRise,Finance,3
+268,Ramit Sethi's IWT,Finance,3
+269,Visa,Finance,2
+270,Triumph Capital,Finance,3
+271,Plaid,Finance,3
+272,Afterpay USA,Finance,3
+273,Baby Jogger,Other,3
+274,HockeyStickMan,Other,3
+275,Harbor Freight,Other,3
+276,IKEA,Other,2
+277,Amazon.com,Other,1
+278,Etsy,Other,1
+279,AliExpress,Other,1
+280,eBay,Other,1
+281,Udemy,Other,1
+282,University of Michigan,Other,3
+283,Dyson,Other,3
+284,Philips Home Living,Other,3
+285,Scholastic,Other,3
+286,Brilliance.com,Other,3
+287,MoMA Design Store,Other,3
+288,Ace Hardware,Other,3
+289,Lowe's Home Improvement,Other,3
+290,Groupon Inc.,Other,2
+291,AmericanMuscle.com,Other,3
+292,Sabai Design,Other,3
+293,Study.com,Other,3
+294,Osmosis from Elsevier,Other,3
+295,Charlie's Soap,Other,3
+296,Andar Singapore,Other,3
+297,Big Moods,Other,3
+298,NTUC FairPrice,Food,3
+299,Birkenstock ME,Fashion,3
+300,Carhartt Work In Progress,Fashion,3
