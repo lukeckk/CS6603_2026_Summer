@@ -13,3 +13,9 @@ materials/*.zip
 # Project AI ML Part 2 - large datasets
 Project_AI_ML_Part_2/BATS_3.0/
 Project_AI_ML_Part_2/crop_part1/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
