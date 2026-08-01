@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  1 AUG 2026 12:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.1)  1 AUG 2026 13:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -885,28 +885,34 @@ File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 ) [1
 
 {/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-<Figures/figure2.png, id=19, 932.48375pt x 421.575pt>
-File: Figures/figure2.png Graphic file (type png)
-<use Figures/figure2.png>
-Package pdftex.def Info: Figures/figure2.png  used on input line 52.
-(pdftex.def)             Requested size: 377.61116pt x 170.71764pt.
-LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on input line 61.
+Overfull \hbox (1.80168pt too wide) in paragraph at lines 48--48
+|[]\T1/ppl/b/n/11/60ls TASK 3: DIS-CUS-SION OF AR-TI-FACT/EVIDENCE MET-RICS DEMON-
+ []
+
+[2]
+<Figures/pseudo_code.png, id=30, 785.93625pt x 756.8275pt>
+File: Figures/pseudo_code.png Graphic file (type png)
+<use Figures/pseudo_code.png>
+Package pdftex.def Info: Figures/pseudo_code.png  used on input line 91.
+(pdftex.def)             Requested size: 397.4883pt x 382.76651pt.
+ [3]
+LaTeX Font Info:    Trying to load font information for T1+SourceCodePro-TLF on input line 100.
  (/usr/local/texlive/2026basic/texmf-dist/tex/latex/sourcecodepro/T1SourceCodePro-TLF.fd
 File: T1SourceCodePro-TLF.fd 2025/04/07 (autoinst) Font definitions for T1/SourceCodePro-TLF.
 )
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/regular/n' aliased to
-(Font)              `T1/SourceCodePro-TLF/m/n' on input line 61.
+(Font)              `T1/SourceCodePro-TLF/m/n' on input line 100.
 LaTeX Font Info:    Font shape `T1/SourceCodePro-TLF/m/n' will be
-(Font)              scaled to size 9.70087pt on input line 61.
+(Font)              scaled to size 9.70087pt on input line 100.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `SourceCodePro-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
 
-LaTeX Warning: Empty bibliography on input line 64.
+LaTeX Warning: Empty bibliography on input line 103.
 
-[2{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/sourcecodepro/a_rzhnou.enc} <./Figures/figure2.png>] (./report.aux)
+[4{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/sourcecodepro/a_rzhnou.enc} <./Figures/pseudo_code.png>] (./report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -925,7 +931,7 @@ Package rerunfilecheck Warning: File `report.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `report.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  E8EA4C03A576F963D804A57483D9E084;1345.
+(rerunfilecheck)             After:  0077FA56889C07AE60ABBDFEDF99ABFE;4243.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                report
@@ -940,18 +946,18 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 ### simple group (level 1) entered at line 20 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25319 strings out of 469006
- 443965 string characters out of 5454814
- 1321956 words of memory out of 5000000
+ 25346 strings out of 469006
+ 444293 string characters out of 5454814
+ 1321953 words of memory out of 5000000
  53385 multiletter control sequences out of 15000+600000
- 712783 words of font info for 280 fonts, out of 8000000 for 9000
+ 713595 words of font info for 290 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 90i,6n,131p,1245b,1961s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,6n,131p,1245b,2015s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Regular.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/fpl/fplbij8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on report.pdf (2 pages, 221799 bytes).
+Output written on report.pdf (4 pages, 352623 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
+ 102 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 26 named destinations out of 1000 (max. 500000)
  104966 words of extra memory for PDF output out of 106986 (max. 10000000)
 

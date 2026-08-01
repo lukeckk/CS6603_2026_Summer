@@ -359,11 +359,11 @@ INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/vf/adobe/palatino/pplr9c.vf
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/tfm/adobe/palatino/pplrc8r.tfm
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
-INPUT ./Figures/figure2.png
-INPUT ./Figures/figure2.png
-INPUT ./Figures/figure2.png
-INPUT ./Figures/figure2.png
-INPUT ./Figures/figure2.png
+INPUT ./Figures/pseudo_code.png
+INPUT ./Figures/pseudo_code.png
+INPUT ./Figures/pseudo_code.png
+INPUT ./Figures/pseudo_code.png
+INPUT ./Figures/pseudo_code.png
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/tfm/adobe/palatino/pplr9d.tfm
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/tfm/adobe/palatino/pplr9d.tfm
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/tfm/adobe/palatino/pplr9d.tfm
