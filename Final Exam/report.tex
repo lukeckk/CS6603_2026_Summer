@@ -73,7 +73,18 @@ Chain-Reaction Rejections: Getting rejected by the AI at Company A wasn't just b
     \item Standard Deviations: black - 0.12, asian - 0.09, white - 0.04
 \end{itemize}
 
-\subsection{Task 4: Propose a Method for Mitigating Bias}
+\section{Task 4: Propose a Method for Mitigating Bias}
+\section{Identified Issue}
+To address demographic bias within the hiring assessment tool, we target the disparity in initial interview selection rates between applicant groups. Historical hiring data contains selection ratios that fall below acceptable statistical fairness thresholds, causing the model to learn and perpetuate past hiring imbalances against protected classe
+
+\section{Data Inputs}
+Historical applicant feature records such as candidate skills, work experience, and protected attributes such as demographic group paired with hiring outcomes of 1 as shortlisted or 0 as not shortlisted.
+
+\section{Data Outputs}
+Re-weighted instance values assigned to each candidate record. These calculated weights adjust how much the model learns from each profile during training.
+
+\section{Method}
+We used reweighting strategy to balance the dataset during data preparation before the model is trained. Instead of altering candidate qualifications, reweighting adjusts the weights or importance given to different applicant profiles in the historical data. It calculates expected selection probabilities versus actual historical outcomes, assigning higher importance weights to underrepresented candidates who were hired and slightly lower weights to overrepresented combinations.
 
 \begin{figure}[H]
 	\centering
