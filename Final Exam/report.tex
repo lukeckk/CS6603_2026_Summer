@@ -45,7 +45,35 @@ This report shows how automated hiring tools used by major companies are biased 
 
 Furthermore, the report shows how \textbf{broad summary statistics} can easily hide this discrimination and mislead readers. Looking at hiring numbers across an entire company might make the system seem fair, but breaking down it down job by job reveals clear violations of employment fairness laws. To make it worse, over 150 top companies use the same hiring software, thus a single flaw in the system gets repeated everywhere. For example,If a candidate is mistakenly rejected by this algorithm once, they  will end up getting rejected as well from jobs across other companies as they are using the same tools.
 
+\section{Task 3: Discussion of Artifact/Evidence Metrics Demonstrating Bias}
+\subsection{Privileged/unprivileged groups}
+\begin{itemize}
+    \item Unprivileged Groups: Black and Asian applicants
+    \item Privileged Group: White job applicants
+\end{itemize}
 
+\subsection{Misleading graphs (Explain why a graph shown is misleading}
+The graph is showing one big overall average and hiding bias against black and asian applicants. For example, If the tooI hires a lot of Black candidates for entry-level warehouse jobs, but rejects them for high-paying manager jobs, the overall average makes it look like everything is fair. In order to fix this, graphs must break down the results job by job to reveal where bias is happening.
+
+\subsection{Source(s) of data bias}
+The AI was trained on past hiring history and old manager reviews and it picks up on individual information like colleges attended, resume wording, or soft skills that act as substitutes for race. As a result, the AI learns and repeats past human prejudice on a massive scale without having to know the candidates’ race.
+
+\subsection{Source(s) of sampling bias}
+Because all over 150 huge Fortune 500 companies use the exact same AI hiring tool. This results in a Chain-Reaction where if it unfairly rejects a candidate at one company, that same system will automatically reject them at next companies. Candidates never get a fresh start.
+
+\subsection{Sampling methods used to collect data}
+The researchers conducted real world tracking by following real job seekers over time, tracking 3.4 million candidates making 4.0 million applications across 1,700 job postings.
+
+\subsection{Correlations found in the data}
+Chain-Reaction Rejections: Getting rejected by the AI at Company A wasn't just bad luck. It strongly increased the candidate's chance of being rejected by Company B—proving the system itself is biased across multiple employers.
+
+\subsection{Outcome measures: averages, standard deviations}
+\begin{itemize}
+    \item Averages: white 28\%, black 19\%, asian 22\% (Recommended rate out of 100 people of each group)
+    \item Standard Deviations: black - 0.12, asian - 0.09, white - 0.04
+\end{itemize}
+
+\subsection{Task 4: Propose a Method for Mitigating Bias}
 
 \begin{figure}[H]
 	\centering
