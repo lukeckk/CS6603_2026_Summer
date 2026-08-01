@@ -1,0 +1,100 @@
+Final Exam
+
+- [x] Task 1: Find a Recent Public Artifact Addressing AI Misuse (25 Pts)
+* Title: "AI Hiring Tools Can Yield Racial Bias and Systemic Rejection”
+* Link to Artifact: https://hai.stanford.edu/news/ai-hiring-tools-can-yield-racial-bias-and-systemic-rejection
+* Release Date: May 26, 2026 
+* Application / Scenario / Domain of Misuse: Automated Candidate Resume Screening
+* Regulated Domain / Protected Class Impacted:
+    * Regulated Domain: Employment
+    * Protected Classes Impacted: Race and Ethnicity
+* Link to Evidence: https://news.stanford.edu/stories/2026/06/ai-hiring-tools-racial-bias-research
+
+- [x] Task 2: Summary of Bias in Public Artifact (20 Pts)
+This report shows how automated hiring tools used by major companies are biased against job seekers with certain ethinicity. When filtering through applicants, these tools tend to filter out Black and Asian candidates while favoring White candidates. Instead of filtering based on their qualifications, the algorithm relies on older, biased data and clues like test games or educational background. As a result, qualified minority applicants are frequently rejected before a human recruiter ever sees their application.
+
+Furthermore, the report shows how broad summary statistics can easily hide this discrimination and mislead readers. Looking at hiring numbers across an entire company might make the system seem fair, but breaking down it down job by job reveals clear violations of employment fairness laws. To make it worse, over 150 top companies use the same hiring software, thus a single flaw in the system gets repeated everywhere. For example,If a candidate is mistakenly rejected by this algorithm once, they  will end up getting rejected as well from jobs across other companies as they are using the same tools.
+
+
+- [x] Task 3: Discussion of Artifact/Evidence Metrics Demonstrating Bias (30 Pts)
+(Analysis covering all 8 distinct course metric categories)
+
+1. Privileged / Unprivileged Groups
+- Unprivileged Groups: Black and Asian applicants
+- Privileged Group: White job applicants
+
+2. The graph is showing one big overall average and hiding bias against black and asian applicants. For example, If the tooI hires a lot of Black candidates for entry-level warehouse jobs, but rejects them for high-paying manager jobs, the overall average makes it look like everything is fair. In order to fix this, graphs must break down the results job by job to reveal where bias is happening.
+
+3. Source of data bias
+The AI was trained on past hiring history and old manager reviews and it picks up on individual information like colleges attended, resume wording, or soft skills that act as substitutes for race. As a result, the AI learns and repeats past human prejudice on a massive scale without having to know the candidates’ race.
+
+4. Source of sampling bias
+Because all over 150 huge Fortune 500 companies use the exact same AI hiring tool. This results in a Chain-Reaction where if it unfairly rejects a candidate at one company, that same system will automatically reject them at next companies. Candidates never get a fresh start.
+
+5. How the Data Was Collected 
+The researchers conducted real world tracking by following real job seekers over time, tracking 3.4 million candidates making 4.0 million applications across 1,700 job postings.
+
+6. Correlation
+Chain-Reaction Rejections: Getting rejected by the AI at Company A wasn't just bad luck. It strongly increased the candidate's chance of being rejected by Company B—proving the system itself is biased across multiple employers.
+
+7. Outcome measures: averages, standard deviations, quartiles, frequency distributions, margins of error
+Averages: 
+- Recommended rate out of 100 people of each group: white 28%, black 19%, asian 22%
+
+Standard deviations:
+- black - 0.12 (12 %) ( high variability across postings )
+- asian - 0.09 ( medium variability )
+- white - 0.04 very consistent
+s
+
+- [ ] Task 4: Propose a Method for Mitigating Bias (25 Pts)
+1. Identified Issue
+To address demographic bias within the hiring assessment tool, we target the disparity in initial interview selection rates between applicant groups. Historical hiring data contains selection ratios that fall below acceptable statistical fairness thresholds, causing the model to learn and perpetuate past hiring imbalances against protected classe
+
+2. Data inputes and Data Outputs
+Data Inputs: Historical applicant feature records (containing candidate skills, work experience, and protected attributes such as demographic group) paired with binary hiring outcomes (1=shortlisted}, 0 = not shortlisted).
+
+Data Outputs: Re-weighted instance values assigned to each candidate record. These calculated weights adjust how much the model learns from each specific profile during training.
+
+3. Method
+We propose using reweighting, a pre-processing strategy that balances the dataset during data preparation before the artificial intelligence model is trained. Instead of altering candidate qualifications, reweighting adjusts the importance given to different applicant profiles in the historical data. It calculates expected selection probabilities versus actual historical outcomes, assigning higher importance weights to underrepresented candidates who were hired and slightly lower weights to overrepresented combinations.
+
+# Using Reweighting method to balance out the privilege gap for demographic groups in hiring
+# Reference: https://arxiv.org/html/2312.12560v1
+
+# Define the target outcome and the protected demographic attribute
+label = df['shortlisted'] 
+is_privileged = df['demographic_privileged']
+
+n = len(df)
+
+# Calculate marginal probabilities for outcomes and group representation
+prob_shortlisted = label.mean()
+prob_rejected = 1 - prob_shortlisted
+prob_privileged = is_privileged.mean()
+prob_unprivileged = 1 - prob_privileged
+
+# Calculate observed joint probabilities (actual historical rates)
+prob_privileged_shortlisted = ((is_privileged) & (label == 1)).mean()
+prob_privileged_rejected = ((is_privileged) & (label == 0)).mean()
+prob_unprivileged_shortlisted = ((~is_privileged) & (label == 1)).mean()
+prob_unprivileged_rejected = ((~is_privileged) & (label == 0)).mean()
+
+# Calculate instance weights: (Expected Probability) / (Observed Probability)
+weights_by_group_label = {
+    (True, 1):  (prob_shortlisted * prob_privileged) / prob_privileged_shortlisted,
+    (True, 0):  (prob_rejected * prob_privileged) / prob_privileged_rejected,
+    (False, 1): (prob_shortlisted * prob_unprivileged) / prob_unprivileged_shortlisted,
+    (False, 0): (prob_rejected * prob_unprivileged) / prob_unprivileged_rejected,
+}
+
+# Apply calculated weights to the dataset for model training
+df['weight'] = 0.0
+
+df.loc[is_privileged & (label == 1), 'weight'] = weights_by_group_label[(True, 1)]
+df.loc[is_privileged & (label == 0), 'weight'] = weights_by_group_label[(True, 0)]
+df.loc[~is_privileged & (label == 1), 'weight'] = weights_by_group_label[(False, 1)]
+df.loc[~is_privileged & (label == 0), 'weight'] = weights_by_group_label[(False, 0)]
+
+# Verify the applied weights before passing to the model
+df[['demographic', 'demographic_privileged', 'shortlisted', 'weight']].head(10)

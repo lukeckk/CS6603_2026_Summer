@@ -19,156 +19,26 @@
 
 \maketitle
 
-\section{ Data Selection }
-
-1. 
+\section{Task 1: Find a Recent Public Artifact Addressing AI Misuse }
+\subsection{Public Artifact}
 \begin{itemize}
-    \item Student Performance Dataset (student-por.csv, Portuguese language course)
-    \item https://archive.ics.uci.edu/dataset/320/student+performance
+    \item Title: "AI Hiring Tools Can Yield Racial Bias and Systemic Rejection”
+    \item Released: May 26, 2026 
+    \item Link: https://hai.stanford.edu/news/ai-hiring-tools-can-yield-racial-bias-and-systemic-rejection
 \end{itemize}
 
-2. 
+\subsection{Application/Scenario/Domain of Misuse}
+Automated Candidate Resume Screening
+
+\subsection{Regulated Domain/Protected Class}
 \begin{itemize}
-    \item Regulated Domain: Education
+    \item Regulated Domain: Employment
+    \item Protected Classes Impacted: Race and Ethnicity
 \end{itemize}
 
-3. 
-\begin{itemize}
-    \item Observations (Rows): 649 observation
-\end{itemize}
+\subsection{Evidence}
+https://news.stanford.edu/stories/2026/06/ai-hiring-tools-racial-bias-research
 
-4. 
-\begin{itemize}
-    \item Variables (Columns): 33 total variables
-\end{itemize}
-
-5. 
-\begin{itemize}
-    \item G3\_pass: A binary variable where 1 = Pass ( G3 >= 10) and 0 = Fail ( G3 < 10 ). This measures final course grade.
-    \item G2\_pass: A binary variable where 1 = Pass ( G2 >= 10) and 0 = Fail ( G2 < 10 ). This measures second period grade.
-\end{itemize}
-
-6. 
-\begin{itemize}
-    \item 2 variables: Sex, Age
-\end{itemize}
-
-7.
-\begin{itemize}
-    \item Sex: Title IX of the Education Amendments of 1972
-    \item Age: The Age Discrimination Act of 1975
-\end{itemize}
-
-
-\section{ Data Exploration}
-1. 
-\begin{itemize}
-    \item Sex: Female or Male
-    \item Age: 15 to 22 years old
-\end{itemize}
-
-2.
-\begin{table}[H]
-\centering
-\begin{tabular}{lrr}
-\hline
-\textbf{Protected Class} & \textbf{Original Subgroup} & \textbf{Discrete Value} \\ \hline
-sex & F & 0 \\ 
-sex & M & 1 \\ 
-age & 15 & 0 \\ 
-age & 16 & 1 \\ 
-age & 17 & 2 \\ 
-age & 18 & 3 \\ 
-age & 19 & 4 \\ 
-age & 20 & 5 \\ 
-age & 21 & 6 \\ 
-age & 22 & 7 \\ \hline
-\end{tabular}
-\caption{Protected Class Subgroup Encoding}
-\label{tab:protected_class_encoding}
-\end{table}
-
-3. 
-\begin{itemize}
-    \item Chosen protected classes: Sex, Age
-\end{itemize}
-
-4.
-% --- Table 1: G2_pass by sex ---
-\begin{table}[H]
-\centering
-\begin{tabular}{lrr}
-\hline
-\textbf{G2\_pass} & \textbf{Fail} & \textbf{Pass} \\ 
-\textbf{sex} & & \\ \hline
-F & 72 & 311 \\ 
-M & 73 & 193 \\ \hline
-\end{tabular}
-\caption{G2 Pass/Fail Status by Sex}
-\label{tab:g2_pass_sex}
-\end{table}
-
-% --- Table 2: G3_pass by sex ---
-\begin{table}[H]
-\centering
-\begin{tabular}{lrr}
-\hline
-\textbf{G3\_pass} & \textbf{Fail} & \textbf{Pass} \\ 
-\textbf{sex} & & \\ \hline
-F & 50 & 333 \\ 
-M & 50 & 216 \\ \hline
-\end{tabular}
-\caption{G3 Pass/Fail Status by Sex}
-\label{tab:g3_pass_sex}
-\end{table}
-
-% --- Table 3: G2_pass by age ---
-\begin{table}[H]
-\centering
-\begin{tabular}{lrr}
-\hline
-\textbf{G2\_pass} & \textbf{Fail} & \textbf{Pass} \\ 
-\textbf{age} & & \\ \hline
-15 & 14 & 98 \\ 
-16 & 33 & 144 \\ 
-17 & 43 & 136 \\ 
-18 & 38 & 102 \\ 
-19 & 15 & 17 \\ 
-20 & 1 & 5 \\ 
-21 & 0 & 2 \\ 
-22 & 1 & 0 \\ \hline
-\end{tabular}
-\caption{G2 Pass/Fail Status by Age}
-\label{tab:g2_pass_age}
-\end{table}
-
-% --- Table 4: G3_pass by age ---
-\begin{table}[H]
-\centering
-\begin{tabular}{lrr}
-\hline
-\textbf{G3\_pass} & \textbf{Fail} & \textbf{Pass} \\ 
-\textbf{age} & & \\ \hline
-15 & 12 & 100 \\ 
-16 & 22 & 155 \\ 
-17 & 28 & 151 \\ 
-18 & 27 & 113 \\ 
-19 & 10 & 22 \\ 
-20 & 0 & 6 \\ 
-21 & 0 & 2 \\ 
-22 & 1 & 0 \\ \hline
-\end{tabular}
-\caption{G3 Pass/Fail Status by Age}
-\label{tab:g3_pass_age}
-\end{table}
-
-5.
-\begin{figure}[H]
-	\centering
-	\includegraphics[height=6cm]{Figures/figure1.png}
-	\caption{Sex vs G3\_Pass}
-	\label{fig:figure_1}
-\end{figure}
 
 \begin{figure}[H]
 	\centering
@@ -176,130 +46,6 @@ M & 50 & 216 \\ \hline
 	\caption{Sex vs G2\_Pass}
 	\label{fig:figure_2}
 \end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[height=6cm]{Figures/figure3.png}
-	\caption{Age vs G3\_Pass}
-	\label{fig:figure_3}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[height=6cm]{Figures/figure4.png}
-	\caption{Age vs G2\_Pass}
-	\label{fig:figure_4}
-\end{figure}
-
-\section{Fairness Metric Selection and Mitigating Bias}
-1.
-\begin{itemize}
-    \item Sex privileged group: Female
-    \item Sex unprivileged group: Male
-    \item Age privileged group: Students of age <=17
-    \item Age unprivileged group: Students of age >= 18
-\end{itemize}
-
-2.
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|c|c|}
-\hline
-\textbf{Protected class} & \textbf{Outcome} & \textbf{Statistical Parity Difference} & \textbf{Disparate Impact} \\ \hline
-sex & G2\_pass & -0.0864 & 0.8935 \\ \hline
-sex & G3\_pass & -0.0574 & 0.9340 \\ \hline
-age & G2\_pass & -0.1116 & 0.8619 \\ \hline
-age & G3\_pass & -0.0775 & 0.9107 \\ \hline
-\end{tabular}
-\caption{Fairness Metrics Across Protected Classes and Outcomes}
-\label{tab:fairness_metrics_outcomes}
-\end{table}
-
-3.
-\begin{itemize}
-    \item Selected pre-processing bias mitigation algorithm: Reweighting on sex group and G3\_pass
-\end{itemize}
-
-4.
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|l|c|c|}
-\hline
-\textbf{Protected class} & \textbf{Outcome} & \textbf{Statistical Parity Difference} & \textbf{Disparate Impact} \\ \hline
-sex & G2\_pass & -0.0422 & 0.9467 \\ \hline
-sex & G3\_pass & 0.0000 & 1.0000 \\ \hline
-age & G2\_pass & -0.1164 & 0.8558 \\ \hline
-age & G3\_pass & -0.0820 & 0.9057 \\ \hline
-\end{tabular}
-\caption{Statistical Parity Difference and Disparate Impact by Demographic}
-\label{tab:fairness_metrics_updated}
-\end{table}
-
-\section{Mitigating Bias}
-
-% --- Table 1: Sex -> G3_pass - Disparate Impact ---
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|l|}
-\hline
-\textbf{Stage} & \textbf{Disparate Impact} & \textbf{Change compared to previous} \\ \hline
-Original Dataset & 0.9340 & NA \\ \hline
-After Transforming Dataset & 1.0000 & Positive change \\ \hline
-After Training Classifier on Original Dataset & 0.9923 & Minimal negative change \\ \hline
-After Training Classifier on Transformed Dataset & 1.0008 & Positive change \\ \hline
-\end{tabular}
-\caption{Sex vs G3\_pass --- Disparate Impact}
-\label{tab:sex_g3_disparate_impact}
-\end{table}
-
-% --- Table 2: Sex -> G3_pass - Statistical Parity Difference ---
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|l|}
-\hline
-\textbf{Stage} & \textbf{Statistical Parity Difference} & \textbf{Change compared to previous} \\ \hline
-Original Dataset & -0.0574 & NA \\ \hline
-After Transforming Dataset & 0.0000 & Positive change \\ \hline
-After Training Classifier on Original Dataset & -0.0075 & Minimal negative change \\ \hline
-After Training Classifier on Transformed Dataset & 0.0008 & Positive change \\ \hline
-\end{tabular}
-\caption{Sex vs G3\_pass --- Statistical Parity Difference}
-\label{tab:sex_g3_stat_parity}
-\end{table}
-
-% --- Table 3: Age -> G3_pass - Disparate Impact ---
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|l|}
-\hline
-\textbf{Stage} & \textbf{Disparate Impact} & \textbf{Change compared to previous} \\ \hline
-Original Dataset & 0.9107 & NA \\ \hline
-After Transforming Dataset & 0.9057 & Negative change \\ \hline
-After Training Classifier on Original Dataset & 0.9376 & Positive change \\ \hline
-After Training Classifier on Transformed Dataset & 0.9168 & Negative change \\ \hline
-\end{tabular}
-\caption{Age vs G3\_pass --- Disparate Impact}
-\label{tab:age_g3_disparate_impact}
-\end{table}
-
-% --- Table 4: Age -> G3_pass - Statistical Parity Difference ---
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|l|}
-\hline
-\textbf{Stage} & \textbf{Statistical Parity Difference} & \textbf{Change compared to previous} \\ \hline
-Original Dataset & -0.0775 & NA \\ \hline
-After Transforming Dataset & -0.0820 & Negative change \\ \hline
-After Training Classifier on Original Dataset & -0.0611 & Positive change \\ \hline
-After Training Classifier on Transformed Dataset & -0.0815 & Negative change \\ \hline
-\end{tabular}
-\caption{Age vs G3\_pass --- Statistical Parity Difference}
-\label{tab:age_g3_stat_parity}
-\end{table}
-
-\section{Analysis}
-I am a team of one
-
 
 \begin{thebibliography}{2}
 

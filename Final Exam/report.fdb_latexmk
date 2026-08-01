@@ -1,13 +1,12 @@
 # Fdb version 4
-["biber report"] 0 "report.bcf" "report.bbl" "report" 1785612710.40511 -1
+["biber report"] 0 "report.bcf" "report.bbl" "report" 0 -1
   "references.bib" 1785612687.62473 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "report.bcf" 1785612710.33125 108610 15ea7dde88b610c831d5b5eec458efe4 "pdflatex"
+  "report.bcf" 1785613702.4029 108610 15ea7dde88b610c831d5b5eec458efe4 "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1785612709.2624 "/Users/lukecheng/OMSCS/CS6603/CS6603_2026_Summer/Final Exam/report.tex" "report.pdf" "report" 1785612710.40538 2
-  "/Users/lukecheng/OMSCS/CS6603/CS6603_2026_Summer/Final Exam/report.tex" 1785611663.94921 8267 37e797acf0f0c837a3167d9b733a6fb8 ""
+["pdflatex"] 1785613701.52284 "report.tex" "report.pdf" "report" 1785613702.50287 2
   "/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/sourcecodepro/a_rzhnou.enc" 1744143336 2853 35e797fe15a6254cee914dbc5dbd5292 ""
   "/usr/local/texlive/2026basic/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm" 1136768653 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
@@ -181,16 +180,12 @@
   "/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1785612670 369694 e8194d14a35e16ff4c7ea8de61332554 ""
   "/usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1772405612 2966183 588a2f29d0aaf280e3a142a37c2dd621 ""
   "/usr/local/texlive/2026basic/texmf.cnf" 1772405582 628 bbc09d6d38872d53c11bb48dc9b14e88 ""
-  "Figures/figure1.png" 1785612075.34801 138521 05a31f57dee2c79a75beb17055bba124 ""
   "Figures/figure2.png" 1785612075.33885 136694 f82994321c71b90c5a9c9e2270ceadd6 ""
-  "Figures/figure3.png" 1785612075.36247 25210 28ec36e7dc879c3816f8c45defc74b55 ""
-  "Figures/figure4.png" 1785612075.36021 23694 5e87da0e196e909cb2ec3bb3dca40f07 ""
-  "changepage.sty" 0 -1 0 ""
   "jdf.cls" 1785612479.57284 7750 7b861e6b6d340d4f0f50053f2a566f0f ""
-  "report.aux" 1785612710.32726 4739 07e6137760d0f13c1833ec2db127d248 "pdflatex"
-  "report.bbl" 0 -1 0 "biber report"
-  "report.out" 1785612710.32884 753 91d5311e2b6d46bce239d692b2a69a0d "pdflatex"
-  "report.tex" 1785611663.94921 8267 37e797acf0f0c837a3167d9b733a6fb8 ""
+  "report.aux" 1785613702.39913 1371 0fc8a3b67863619d6e86e0c14997b60a "pdflatex"
+  "report.bbl" 1785613285.61329 466 76d65a242ec496c9b4361af646ff12cb "biber report"
+  "report.out" 1785613702.40054 1071 132590daa74322860741dd6d1f6931f8 "pdflatex"
+  "report.tex" 1785613646.58696 1639 2c9ba3f2af3ae2e7cb892bdd3e138f35 ""
   (generated)
   "report.aux"
   "report.bcf"
