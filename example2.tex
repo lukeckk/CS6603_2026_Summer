@@ -1,0 +1,749 @@
+\documentclass[
+	%a4paper, % Use A4 paper size
+	letterpaper, % Use US letter paper size
+]{jdf}
+
+\addbibresource{references.bib}
+
+\author{Kha Kein “Luke” Cheng}
+\email{Kcheng314@gatech.edu}
+\title{Homework Project #4: AI/ML Part 2}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{float}
+\captionsetup{justification=centering}
+\begin{document}
+%\lsstyle
+
+\maketitle
+
+\section{ Word2vec }
+
+\subsection{Use Word2vec to compute bias in target words man and woman}
+
+\begin{table}[H] % Change to [H] if you are enforcing strict placement!
+\centering
+\caption*{Word2vec Target Word Bias Statistics}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Similarity Rank} & \textbf{Similarity to 'man'} & \textbf{Similarity to 'woman'} \\
+\midrule
+1 & man: 1.000000 & woman: 1.000000 \\
+\midrule
+2 & woman: 0.587694 & child: 0.589809 \\
+\midrule
+3 & child: 0.333422 & man: 0.587694 \\
+\midrule
+4 & doctor: 0.289247 & husband: 0.449643 \\
+\midrule
+5 & wife: 0.283479 & birth: 0.420309 \\
+\midrule
+6 & king: 0.264497 & wife: 0.300688 \\
+\midrule
+7 & husband: 0.234116 & nurse: 0.254358 \\
+\midrule
+8 & nurse: 0.153481 & queen: 0.228572 \\
+\midrule
+9 & birth: 0.123439 & teacher: 0.204078 \\
+\midrule
+10 & scientist: 0.112269 & doctor: 0.196134 \\
+\midrule
+11 & queen: 0.110420 & scientist: 0.137311 \\
+\midrule
+12 & professor: 0.107622 & king: 0.122529 \\
+\midrule
+13 & teacher: 0.098740 & professor: 0.105199 \\
+\midrule
+14 & president: 0.094579 & president: 0.084627 \\
+\midrule
+15 & engineer: 0.087364 & engineer: 0.044264 \\
+\bottomrule
+\end{tabularx}
+\label{tab:word2vec_bias_stats}
+\end{table}
+
+\subsection{Word2vec and the Bigger Analogy Test Set (BATS)}
+\subsubsection{Part A}
+\begin{itemize}
+    \item File selected: E01 [country - capital]
+    \item Target word: Capital
+\end{itemize}
+
+
+\begin{table}[H]
+\centering
+\caption*{BATS Capital-Country Similarity Scores (Part 1)}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Target Word (Capital)} & \textbf{Comparison Word} & \textbf{Similarity Score} \\
+\midrule
+abuja & nigeria & Not found \\
+\midrule
+amman & jordan & 0.324523 \\
+\midrule
+ankara & turkey & 0.295108 \\
+\midrule
+athens & greece & 0.510705 \\
+\midrule
+baghdad & iraq & 0.530551 \\
+\midrule
+bangkok & thailand & 0.468903 \\
+\midrule
+beijing & china & 0.561427 \\
+\midrule
+beirut & lebanon & 0.584435 \\
+\midrule
+belgrade & serbia & 0.601303 \\
+\midrule
+berlin & germany & 0.553622 \\
+\midrule
+bern & switzerland & 0.472947 \\
+\midrule
+brussels & belgium & 0.562507 \\
+\midrule
+bucharest & romania & 0.469891 \\
+\midrule
+budapest & hungary & 0.517040 \\
+\midrule
+cairo & egypt & 0.489359 \\
+\midrule
+canberra & australia & 0.343679 \\
+\midrule
+conakry & guinea & 0.525148 \\
+\midrule
+copenhagen & denmark & 0.446619 \\
+\midrule
+damascus & syria & 0.604804 \\
+\midrule
+dhaka & bangladesh & 0.453235 \\
+\midrule
+dublin & ireland & 0.437284 \\
+\midrule
+hanoi & vietnam & 0.339190 \\
+\midrule
+havana & cuba & 0.484984 \\
+\midrule
+helsinki & finland & 0.503703 \\
+\midrule
+islamabad & pakistan & 0.574659 \\
+\midrule
+jakarta & indonesia & 0.428815 \\
+\midrule
+kabul & afghanistan & 0.581063 \\
+\bottomrule
+\end{tabularx}
+\label{tab:bats_scores_part1}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption*{BATS Capital-Country Similarity Scores (Part 2)}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Target Word (Capital)} & \textbf{Comparison Word} & \textbf{Similarity Score} \\
+\midrule
+kiev & ukraine & 0.480903 \\
+\midrule
+kingston & jamaica & 0.416547 \\
+\midrule
+lima & peru & 0.581408 \\
+\midrule
+lisbon & portugal & 0.426096 \\
+\midrule
+london & england & 0.448425 \\
+\midrule
+london & uk & 0.294873 \\
+\midrule
+london & britain & 0.266502 \\
+\midrule
+madrid & spain & 0.389742 \\
+\midrule
+manila & philippines & 0.415015 \\
+\midrule
+moscow & russia & 0.462891 \\
+\midrule
+nairobi & kenya & 0.589144 \\
+\midrule
+oslo & norway & 0.416106 \\
+\midrule
+ottawa & canada & 0.507419 \\
+\midrule
+paris & france & 0.484897 \\
+\midrule
+rome & italy & 0.446240 \\
+\midrule
+santiago & chile & 0.450533 \\
+\midrule
+sofia & bulgaria & 0.300650 \\
+\midrule
+stockholm & sweden & 0.585047 \\
+\midrule
+taipei & taiwan & 0.657820 \\
+\midrule
+tbilisi & georgia & 0.483393 \\
+\midrule
+tehran & iran & 0.440669 \\
+\midrule
+tokyo & japan & 0.478958 \\
+\midrule
+vienna & austria & 0.536410 \\
+\midrule
+warsaw & poland & 0.559183 \\
+\midrule
+zagreb & croatia & 0.498599 \\
+\bottomrule
+\end{tabularx}
+\label{tab:bats_scores_part2}
+\end{table}
+
+
+\subsubsection{Part B}
+\begin{itemize}
+    \item Protected class: Nationality
+    \item 3 protected words ; 'american', 'african', 'european'
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption*{BATS Capital-Race Word2vec Similarity Bias (Part 1)}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Target Word} & \textbf{Protected Subgroup} & \textbf{Similarity Score} & \textbf{Noticeable Difference?} \\
+\midrule
+abuja & american & Not found & No \\
+& african & Not found & \\
+& european & Not found & \\
+\midrule
+amman & american & 0.037926 & No \\
+& african & 0.100183 & \\
+& european & 0.062892 & \\
+\midrule
+ankara & american & -0.072377 & No \\
+& african & 0.063476 & \\
+& european & 0.015120 & \\
+\midrule
+athens & american & 0.004321 & No \\
+& african & 0.030782 & \\
+& european & 0.094820 & \\
+\midrule
+baghdad & american & 0.032153 & No \\
+& african & 0.060242 & \\
+& european & 0.077179 & \\
+\midrule
+bangkok & american & 0.151544 & No \\
+& african & 0.252938 & \\
+& european & 0.135849 & \\
+\midrule
+beijing & american & 0.078233 & No \\
+& african & 0.180844 & \\
+& european & 0.129712 & \\
+\midrule
+beirut & american & 0.069844 & No \\
+& african & 0.173222 & \\
+& european & 0.070124 & \\
+\midrule
+belgrade & american & -0.031756 & Yes \\
+& african & 0.154452 & \\
+& european & 0.161117 & \\
+\midrule
+berlin & american & 0.070129 & No \\
+& african & 0.019725 & \\
+& european & 0.075832 & \\
+\midrule
+bern & american & 0.049544 & No \\
+& african & 0.139576 & \\
+& european & 0.160851 & \\
+\midrule
+brussels & american & -0.002163 & Yes \\
+& african & 0.103624 & \\
+& european & 0.195483 & \\
+\bottomrule
+\end{tabularx}
+\label{tab:bats_bias_part1}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption*{BATS Capital-Race Word2vec Similarity Bias (Part 2)}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Target Word} & \textbf{Protected Subgroup} & \textbf{Similarity Score} & \textbf{Noticeable Difference?} \\
+\midrule
+bucharest & american & 0.070568 & No \\
+& african & 0.174397 & \\
+& european & 0.113487 & \\
+\midrule
+budapest & american & 0.025487 &. No \\
+& african & 0.149478 & \\
+& european & 0.162920 & \\
+\midrule
+cairo & american & 0.013958 & No \\
+& african & 0.140308 & \\
+& european & 0.093228 & \\
+\midrule
+canberra & american & 0.105989 & No \\
+& african & 0.140881 & \\
+& european & 0.069111 & \\
+\midrule
+conakry & american & 0.036181 & Yes \\
+& african & 0.290304 & \\
+& european & 0.146765 & \\
+\midrule
+copenhagen & american & -0.047618 & No \\
+& african & -0.009425 & \\
+& european & 0.069227 & \\
+\midrule
+damascus & american & -0.171651 & Yes \\
+& african & -0.069298 & \\
+& european & 0.013260 & \\
+\midrule
+dhaka & american & 0.134568 & No \\
+& african & 0.256816 & \\
+& european & 0.173910 & \\
+\midrule
+dublin & american & 0.064542 & No \\
+& african & 0.053676 & \\
+& european & 0.042249 & \\
+\midrule
+hanoi & american & 0.103545 & No \\
+& african & 0.095411 & \\
+& european & 0.019425 & \\
+\midrule
+havana & american & 0.040162 & No \\
+& african & 0.065620 & \\
+& european & 0.046930 & \\
+\midrule
+helsinki & american & -0.041257 & Yes \\
+& african & 0.128209 & \\
+& european & 0.147220 & \\
+\bottomrule
+\end{tabularx}
+\label{tab:bats_bias_part2}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption*{BATS Capital-Race Word2vec Similarity Bias (Part 3)}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Target Word} & \textbf{Protected Subgroup} & \textbf{Similarity Score} & \textbf{Noticeable Difference?} \\
+\midrule
+islamabad & american & 0.030398 & No \\
+& african & 0.129453 & \\
+& european & 0.062673 & \\
+\midrule
+jakarta & american & 0.006824 & Yes \\
+& african & 0.181415 & \\
+& european & 0.064502 & \\
+\midrule
+kabul & american & -0.025478 & No \\
+& african & 0.103456 & \\
+& european & 0.072211 & \\
+\midrule
+kiev & american & 0.136857 & No \\
+& african & 0.146642 & \\
+& european & 0.077917 & \\
+\midrule
+kingston & american & 0.116979 & No \\
+& african & 0.052147 & \\
+& european & 0.015957 & \\
+\midrule
+lima & american & 0.126648 & No \\
+& african & 0.197589 & \\
+& european & 0.081461 & \\
+\midrule
+lisbon & american & -0.074317 & No \\
+& african & 0.040119 & \\
+& european & 0.059980 & \\
+\midrule
+london & american & 0.138342 & No \\
+& african & 0.009979 & \\
+& european & 0.119262 & \\
+\midrule
+madrid & american & 0.007377 & No \\
+& african & 0.032059 & \\
+& european & 0.104815 & \\
+\midrule
+manila & american & 0.053410 & No \\
+& african & 0.116726 & \\
+& european & 0.038787 & \\
+\midrule
+moscow & american & 0.037745 & No \\
+& african & 0.106558 & \\
+& european & 0.160483 & \\
+\midrule
+nairobi & american & 0.052983 & Yes \\
+& african & 0.308470 & \\
+& european & 0.180376 & \\
+\bottomrule
+\end{tabularx}
+\label{tab:bats_bias_part3}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption*{BATS Capital-Race Word2vec Similarity Bias (Part 4)}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Target Word} & \textbf{Protected Subgroup} & \textbf{Similarity Score} & \textbf{Noticeable Difference?} \\
+\midrule
+oslo & american & -0.003911 & No \\
+& african & 0.060094 & \\
+& european & 0.139064 & \\
+\midrule
+ottawa & american & 0.019550 & No \\
+& african & 0.112528 & \\
+& european & 0.094212 & \\
+\midrule
+paris & american & 0.030882 & No \\
+& african & 0.026195 & \\
+& european & 0.116949 & \\
+\midrule
+rome & american & -0.086965 & Yes \\
+& african & -0.026061 & \\
+& european & 0.104442 & \\
+\midrule
+santiago & american & 0.033959 & No \\
+& african & 0.034394 & \\
+& european & 0.036865 & \\
+\midrule
+sofia & american & 0.104708 & No \\
+& african & 0.127983 & \\
+& european & 0.082480 & \\
+\midrule
+stockholm & american & -0.078488 & Yes \\
+& african & 0.037560 & \\
+& european & 0.103565 & \\
+\midrule
+taipei & american & 0.120162 & No \\
+& african & 0.215396 & \\
+& european & 0.114825 & \\
+\midrule
+tbilisi & confidential & 0.029083 & Yes \\
+& african & 0.218353 & \\
+& european & 0.199420 & \\
+\midrule
+tehran & american & 0.081898 & No \\
+& african & 0.205859 & \\
+& european & 0.151440 & \\
+\midrule
+tokyo & american & 0.190526 & No \\
+& african & 0.108327 & \\
+& european & 0.223106 & \\
+\midrule
+vienna & american & 0.006695 & Yes \\
+& african & -0.003217 & \\
+& european & 0.151835 & \\
+\bottomrule
+\end{tabularx}
+\label{tab:bats_bias_part4}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption*{BATS Capital-Race Word2vec Similarity Bias (Part 5)}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Target Word} & \textbf{Protected Subgroup} & \textbf{Similarity Score} & \textbf{Noticeable Difference?} \\
+\midrule
+warsaw & american & 0.110010 & Yes \\
+& african & 0.218806 & \\
+& european & 0.274086 \\
+\midrule
+zagreb & american & 0.013836 & Yes \\
+& african & 0.170145 & \\
+& european & 0.096754 & \\
+\bottomrule
+\end{tabularx}
+\label{tab:bats_bias_part5}
+\end{table}
+
+The differences in the noticeable difference scores come down to what words show up together in the training data. European capitals tend to be closer to "european," while Sub-Saharan capitals lean heavily toward "african," probably because that is how they were paired up in the training data the model learned from. This shows a clear pattern of bias where the vector space is not tracking pure geography or logic, it is just outputting the pattern that it was trained on and possibly mirroring real-world media imbalances.
+
+\subsection{Computing analogies with Word2vec}
+\subsubsection{Own word analogies}
+king is to throne as judge is to \_chair\_?\\
+\texttt{newmodel.similarity('judge', 'chair') -> 0.1989304}
+
+\vspace{1em}
+
+giant is to dwarf as genius is to \_dumb\_?\\
+\texttt{newmodel.similarity('genius', 'dumb') -> 0.2961623}
+
+\vspace{1em}
+
+college is to dean as jail is to \_most wanted\_?\\
+\texttt{newmodel.similarity('jail', 'most\_wanted') -> Not found}
+
+\vspace{1em}
+
+arc is to circle as line is to \_rectangle\_?\\
+\texttt{newmodel.similarity('line', 'rectangle') -> 0.1876916}
+
+\vspace{1em}
+
+French is to France as Dutch is to \_netherlands\_?\\
+\texttt{newmodel.similarity('dutch', 'netherlands') -> 0.4192289}
+
+\vspace{1em}
+
+man is to woman as king is to \_queen\_?\\
+\texttt{newmodel.similarity('king', 'queen') -> 0.5685571}
+
+\vspace{1em}
+
+water is to ice as liquid is to \_solid\_?\\
+\texttt{newmodel.similarity('liquid', 'solid') -> 0.6546475}
+
+\vspace{1em}
+
+bad is to good as sad is to \_happy\_?\\
+\texttt{newmodel.similarity('sad', 'happy') -> 0.4488509}
+
+\vspace{1em}
+
+nurse is to hospital as teacher is to \_school\_?\\
+\texttt{newmodel.similarity('teacher', 'school') -> 0.5326568}
+
+\vspace{1em}
+
+usa is to pizza as japan is to \_sushi\_?\\
+\texttt{newmodel.similarity('japan', 'sushi') -> 0.0118663}
+
+\vspace{1em}
+
+human is to house as dog is to \_cage\_?\\
+\texttt{newmodel.similarity('dog', 'cage') -> 0.1947597}
+
+\vspace{1em}
+
+grass is to green as sky is to \_blue\_?\\
+\texttt{newmodel.similarity('sky', 'blue') -> 0.4439698}
+
+\vspace{1em}
+
+video is to cassette as computer is to \_internet\_?\\
+\texttt{newmodel.similarity('computer', 'internet') -> 0.2266275}
+
+\vspace{1em}
+
+universe is to planet as house is to \_earth\_?\\
+\texttt{newmodel.similarity('house', 'earth') -> -0.0148456}
+
+\vspace{1em}
+
+poverty is to wealth as sickness is to \_health\_?\\
+\texttt{newmodel.similarity('sickness', 'health') -> 0.1952760}
+
+\subsubsection{Model's word analogies}
+
+king is to throne as judge is to \_prosecution\_?\\
+\texttt{newmodel.most\_similar(positive=['judge', 'throne'], negative=['king'], topn=1) -> ('prosecution', 0.5186458)}
+
+\vspace{1em}
+
+giant is to dwarf as genius is to \_theorist\_?\\
+\texttt{newmodel.most\_similar(positive=['genius', 'dwarf'], negative=['giant'], topn=1) -> ('theorist', 0.4280889)}
+
+\vspace{1em}
+
+college is to dean as jail is to \_peress\_?\\
+\texttt{newmodel.most\_similar(positive=['jail', 'dean'], negative=['college'], topn=1) -> ('peress', 0.5444426)}
+
+\vspace{1em}
+
+arc is to circle as line is to \_lines\_?\\
+\texttt{newmodel.most\_similar(positive=['line', 'circle'], negative=['arc'], topn=1) -> ('lines', 0.4287526)}
+
+\vspace{1em}
+
+French is to France as Dutch is to \_netherlands\_?\\
+\texttt{newmodel.most\_similar(positive=['dutch', 'france'], negative=['french'], topn=1) -> ('netherlands', 0.6044681)}
+
+\vspace{1em}
+
+man is to woman as king is to \_queen\_?\\
+\texttt{newmodel.most\_similar(positive=['king', 'woman'], negative=['man'], topn=1) -> ('queen', 0.5532454)}
+
+\vspace{1em}
+
+water is to ice as liquid is to \_solid\_?\\
+\texttt{newmodel.most\_similar(positive=['liquid', 'ice'], negative=['water'], topn=1) -> ('solid', 0.4500039)}
+
+\vspace{1em}
+
+bad is to good as sad is to \_glory\_?\\
+\texttt{newmodel.most\_similar(positive=['sad', 'good'], negative=['bad'], topn=1) -> ('glory', 0.4403817)}
+
+\vspace{1em}
+
+nurse is to hospital as teacher is to \_institution\_?\\
+\texttt{newmodel.most\_similar(positive=['teacher', 'hospital'], negative=['nurse'], topn=1) -> ('institution', 0.4828982)}
+
+\vspace{1em}
+
+usa is to pizza as japan is to \_dishes\_?\\
+\texttt{newmodel.most\_similar(positive=['japan', 'pizza'], negative=['usa'], topn=1) -> ('dishes', 0.5763507)}
+
+\vspace{1em}
+
+human is to house as dog is to \_hound\_?\\
+\texttt{newmodel.most\_similar(positive=['dog', 'house'], negative=['human'], topn=1) -> ('hound', 0.4231665)}
+
+\vspace{1em}
+
+grass is to green as sky is to \_blue\_?\\
+\texttt{newmodel.most\_similar(positive=['sky', 'green'], negative=['grass'], topn=1) -> ('blue', 0.5478643)}
+
+\vspace{1em}
+
+video is to cassette as computer is to \_peripherals\_?\\
+\texttt{newmodel.most\_similar(positive=['computer', 'cassette'], negative=['video'], topn=1) -> ('peripherals', 0.6654508)}
+
+\vspace{1em}
+
+universe is to planet as house is to \_houses\_?\\
+\texttt{newmodel.most\_similar(positive=['house', 'planet'], negative=['universe'], topn=1) -> ('houses', 0.4264703)}
+
+\vspace{1em}
+
+poverty is to wealth as sickness is to \_impious\_?\\
+\texttt{newmodel.most\_similar(positive=['sickness', 'wealth'], negative=['poverty'], topn=1) -> ('impious', 0.4960610)}
+
+
+\subsubsection{Comparison of own and model's analogy similarity scores}
+\begin{itemize}
+    \item Correlation value: 0.0317
+    \item Strength label: very weak
+\end{itemize}
+
+\subsubsection{Own predictions vs model predictions}
+
+I think I got it right for the most parts, some parts that i got lower similarity is when the word the model uses word with highest similiarity but it is totaled unrealted and for this i blame on the training data used to train the model. For example, usa is to pizza as japan is to "dishes"? video is to cassette as computer is to "peripherals'?	
+
+In fact, for analogy 7, i did better than the vector math, i gave the answer "happy" and got similarity score of 0.449, which is higher than the score of "glory" it computed using "sad - bad + good" which is 0.440382
+
+\section{UTK Dataset}
+\subsection{Analysis}
+
+\subsubsection{Frequency of images for each subgroup}
+
+\begin{table}[H] % Change to [H] if you are enforcing strict placement!
+\centering
+\caption*{UTK Dataset Age Group Frequencies}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Age Group} & \textbf{Frequency} \\
+\midrule
+0–20 & 4267 \\
+\midrule
+21–40 & 2533 \\
+\midrule
+41–60 & 1665 \\
+\midrule
+61–80 & 967 \\
+\midrule
+81–116 & 346 \\
+\bottomrule
+\end{tabularx}
+\label{tab:utk_age_frequencies}
+\end{table}
+
+\begin{table}[H] % Change to [H] if you are enforcing strict placement!
+\centering
+\caption*{UTK Dataset Gender Frequencies}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Gender} & \textbf{Frequency Count} \\
+\midrule
+Male & 4372 \\
+\midrule
+Female & 5406 \\
+\bottomrule
+\end{tabularx}
+\label{tab:utk_gender_frequencies}
+\end{table}
+
+\begin{table}[H] % Change to [H] if you are enforcing strict placement!
+\centering
+\caption*{UTK Dataset Race Frequencies}
+\small 
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Race} & \textbf{Frequency Count} \\
+\midrule
+ White & 5265 \\
+\midrule
+ Black & 405 \\
+\midrule
+ Asian & 1553 \\
+\midrule
+ Indian & 1452 \\
+\midrule
+ Others & 1103 \\
+\bottomrule
+\end{tabularx}
+\label{tab:utk_race_frequencies}
+\end{table}
+
+\subsubsection{Distribution table}
+
+\begin{table}[H] % Change to [H] if you are enforcing strict placement!
+\centering
+\caption*{UTK Dataset Subgroup Distribution}
+\small 
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X||>{\centering\arraybackslash}X|}
+\hline
+\textbf{Age group} & \textbf{0--20} & \textbf{21--40} & \textbf{41--60} & \textbf{61--80} & \textbf{81--116} & \textbf{Total} \\
+\hline
+\hline
+\hspace{1em} Female & 2,326 & 1,632 & 751 & 465 & 232 & 5,406 \\
+\hspace{1em} Male & 1,941 & 901 & 914 & 502 & 114 & 4,372 \\
+\hline
+\hline
+\hspace{1em} Black & 160 & 100 & 75 & 55 & 15 & 405 \\
+\hspace{1em} White & 1,931 & 1,034 & 1,252 & 793 & 255 & 5,265 \\
+\hspace{1em} Asian & 1,017 & 349 & 88 & 47 & 52 & 1,553 \\
+\hspace{1em} Indian & 607 & 598 & 162 & 63 & 22 & 1,452 \\
+\hspace{1em} Others & 552 & 452 & 88 & 9 & 2 & 1,103 \\
+\hline
+\hline
+\textbf{\hspace{1em} Total} & \textbf{4,267} & \textbf{2,533} & \textbf{1,665} & \textbf{967} & \textbf{346} & \textbf{9,778} \\
+\hline
+\end{tabularx}
+\label{tab:utk_distribution_matrix_final}
+\end{table}
+
+\subsubsection{Largest and Least representation}
+\begin{itemize}
+    \item Largest Age Representation: 0-20 age group
+    \item Least Age Representation: 81-116 age group
+    \item Largest Gender Representation: female
+    \item Least Gender Representation:  male
+    \item Largest Race Representation:  White
+    \item Least Race Representation:    Black
+\end{itemize}
+
+\subsubsection{Which group will be impacted the most? Why?}
+Black individuals and elderly individuals in the 81–116 age group would likely be impacted the most and face the highest error rates. With only 405 Black faces compared to white faces that has 5265 images and only 346 elderly faces compared to 0-20 age group with 4267 images , the model sees far less variation in lighting, pose, and face structures for those groups, resulting in lack of training data so predictions for them will be less reliable. 
+
+An example would be a face-recognition hiring system trained on this dataset will underestimate the age of a Black job applicant or failing facial verification at a security checkpoint. That could lead to false rejections, extra manual review, or denial of service.
+Because of this, the system will them amplify the existing bias and continue the cycle.
+
+
+
+
+
+\printbibliography[heading=none]
+
+\end{document}

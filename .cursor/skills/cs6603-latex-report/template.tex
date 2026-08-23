@@ -1,0 +1,57 @@
+\documentclass[
+	%a4paper, % Use A4 paper size
+	letterpaper, % Use US letter paper size
+]{jdf}
+
+\addbibresource{references.bib}
+
+\author{Kha Kein “Luke” Cheng}
+\email{Kcheng314@gatech.edu}
+\title{ASSIGNMENT TITLE HERE}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{xurl} 
+\usepackage{hyperref}
+\captionsetup{justification=centering}
+\begin{document}
+%\lsstyle
+
+\maketitle
+
+\section{Section Title}
+\subsection{Subsection Title}
+\begin{itemize}
+    \item Label: value
+\end{itemize}
+
+Plain paragraph from draft goes here unchanged.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=6cm]{Figures/figure_1.png}
+	\caption{Caption from draft}
+	\label{fig:figure_1}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\hline
+\textbf{Column A} & \textbf{Column B} & \textbf{Column C} \\ \hline
+row & 1 & 2 \\ \hline
+\end{tabular}
+\caption{Table caption from draft}
+\label{tab:example}
+\end{table}
+
+\begin{thebibliography}{2}
+
+\bibitem{example2023}
+Author, A. (2023). ``Paper title.'' \textit{Journal}. 
+\textsc{url}: \url{https://example.com}.
+
+\end{thebibliography}
+\printbibliography[heading=none]
+
+\end{document}

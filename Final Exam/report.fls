@@ -2,7 +2,7 @@ PWD /Users/lukecheng/OMSCS/CS6603/CS6603_2026_Summer/Final Exam
 INPUT /usr/local/texlive/2026basic/texmf.cnf
 INPUT /usr/local/texlive/2026basic/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2026basic/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/lukecheng/OMSCS/CS6603/CS6603_2026_Summer/Final Exam/report.tex
+INPUT report.tex
 OUTPUT report.log
 INPUT ./jdf.cls
 INPUT jdf.cls
@@ -219,11 +219,20 @@ INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/xurl/xurl.sty
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/xurl/xurl.sty
+INPUT ./report.aux
+INPUT ./report.aux
+INPUT report.aux
 OUTPUT report.aux
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/tfm/adobe/palatino/pplr9d.tfm
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/graphics/color.sty
-OUTPUT report.out
+INPUT ./report.out
+INPUT ./report.out
+INPUT report.out
+INPUT report.out
 OUTPUT report.pdf
+INPUT ./report.out
+INPUT ./report.out
+OUTPUT report.out
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 INPUT /usr/local/texlive/2026basic/texmf-dist/tex/latex/microtype/mt-ppl.cfg
@@ -400,6 +409,7 @@ INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/sourcecodepro/a_rz
 INPUT report.aux
 INPUT ./report.out
 INPUT ./report.out
+INPUT report.run.xml
 OUTPUT report.run.xml
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/type1/adobe/sourcecodepro/SourceCodePro-Regular.pfb
 INPUT /usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/fpl/fplbij8a.pfb

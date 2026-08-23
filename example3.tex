@@ -1,0 +1,209 @@
+\documentclass[
+	%a4paper, % Use A4 paper size
+	letterpaper, % Use US letter paper size
+]{jdf}
+
+\addbibresource{references.bib}
+
+\author{Kha Kein “Luke” Cheng}
+\email{Kcheng314@gatech.edu}
+\title{Homework Project \#5: Fairness and Bias}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{xurl} 
+\usepackage{hyperref}
+\captionsetup{justification=centering}
+\begin{document}
+%\lsstyle
+
+\maketitle
+
+\section{ Data Selection }
+Selected Dataset: Taiwan Credit Data Set 
+
+\section{ Data Exploration}
+\begin{itemize}
+    \item 3000 observations
+    \item 24 variables
+    \item Sex, Age, Marriage - Equal Credit Opportunity Act (ECOA)
+\end{itemize}
+
+
+\section{Defining Creditworthiness and Preparing the Dataset}
+\subsection{Dataset Outcome Variable}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Dataset} & \textbf{Outcome Variable} \\ \hline
+Taiwan Credit Data Set & y \\ \hline
+\end{tabular}
+\caption{Dataset and Outcome Variable}
+\label{tab:taiwan_dataset}
+\end{table}
+
+\subsection{Formula to Determine Creditworthiness}
+To create this score, we start everyone at a base of 100 points and then subtract points based on how late their payments have been by looking at each of the six payment history fields such as PAY\_0, and PAY\_2 through PAY\_6, and for each one, We only count it as delay if the value is positive, meaning 0 or negative values do not count against the score. For every month of delay found in each field, I deduct 10 points from the total. Finally, I make sure the score never drops below 0 by clipping any negative result to 0, so the formula is "score = max(0, 100 - (10 * sum of all positive PAY values))".
+
+\subsection{Select Protected Class Attribute}
+Age 
+
+\subsection{Define Privileged and Unprivileged Groups}
+\begin{itemize}
+    \item Unprivileged: older (age >= 40)
+    \item Privileged: younger (age < 40)
+\end{itemize}
+
+\subsection{Split Dataset into Train and Test Sets}
+\begin{itemize}
+    \item Training Set: privileged=10467, unprivileged=4533
+    \item Testing Set: privileged=10389, unprivileged=4611
+\end{itemize}
+
+
+\section{Maximizing Profit}
+\subsection{Plot a Histogram for Creditworthiness}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=6cm]{Figures/figure_1.png}
+	\caption{Histogram for Creditworthiness}
+	\label{fig:figure_1}
+\end{figure}
+
+\subsection{Compute a Threshold for Loan Approval that Maximizes Profit}
+\begin{itemize}
+    \item Threshold: 25
+    \item Max profit: 86335
+\end{itemize}
+
+\subsection{ Plot your threshold on the Histogram from Step 4.1}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=6cm]{Figures/figure_2.png}
+	\caption{Histogram for Creditworthiness with Threshold}
+	\label{fig:figure_2}
+\end{figure}
+
+\subsection{Compute Favorable verses Unfavorable outcomes for protected class subgroups}
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\hline
+\textbf{group} & \textbf{Privileged (Young)} & \textbf{Unprivileged (Old)} \\ 
+\textbf{} & & \\ \hline
+Unfavorable (Declined) & 815 & 366 \\ 
+Favorable (Approved) & 9652 & 4167 \\ \hline
+\end{tabular}
+\caption{Group Outcomes by Privilege Status}
+\label{tab:group_outcomes}
+\end{table}
+
+\section{Fairness Metrics}
+\subsection{ Fairness Metric Selection }
+\begin{itemize}
+    \item Disparate Impact : 0.9969
+    \item Equal Opportunity: 0.0022
+\end{itemize}
+
+\subsection{Plot Fairness Metrics}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=6cm]{Figures/figure_3.png}
+	\caption{Histogram for Disparate Impact}
+	\label{fig:figure_3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=6cm]{Figures/figure_4.png}
+	\caption{Histogram for Equal Opportunity}
+	\label{fig:figure_4}
+\end{figure}
+
+\subsection{Document your Fairness Metrics}
+\begin{table}[H]
+\centering
+\begin{tabular}{lrcc}
+\hline
+\textbf{Fairness metric} & \textbf{Computed value} & \textbf{Acceptable range} & \textbf{Bias} \\ \hline
+Disparate Impact & 0.9969 & 0.8 to 1.25 & No \\ 
+Equal Opportunity & 0.0022 & -0.1 to 0.1 & No \\ \hline
+\end{tabular}
+\caption{Fairness Metrics Evaluation}
+\label{tab:fairness_metrics}
+\end{table}
+
+\subsection{Analyze Bias with the Fairness Metrics Selected}
+Based on the two fairness metrics, there is not much age bias between the privileged group (younger than age 40) and the unprivileged group (age 40 and older) on the training dateset. The Disparate Impact is 0.9969, which is very close to the ideal value of 1.0 and well within the fair range of 0.8 to 1.2, meaning the loan approval rates for young and old applicants were almost the same. Equal Opportunity is 0.0022, which is also near the ideal of 0, so amongst applicants who did not default, both age groups were approved at nearly the same rate. This result makes sense with our threshold of 25, because most people are approved under that cutoff, so there is little room for one age group to be treated much better or worse than the other. Overall, the metrics do not show bias for or against either the privileged or unprivileged age group at this stage.
+
+\section{Mitigate bias in the training set }
+\subsection{Select Different Thresholds for Privileged and Unprivileged Groups}
+\begin{itemize}
+    \item Privileged Threshold: 25
+    \item Unprivileged Threshold: 10
+\end{itemize}
+
+\subsection{ Find Threshold Values that Minimize Bias for Privileged and Unprivileged Groups}
+We updated the threshold from 25 for both groups to 35 for the privileged (young) group and 40 for the unprivileged (old) group and while we were able to achieve much better Disparate Impact score of 1.000183 from 0.9969, our profit did drop from 86335 to 85600 which is less than 1\% change and this is expected because we are using 2 different thresholds to improve fairness rather than only maximizing profit with one shared threshold.
+
+\subsection{Plot Histograms}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=6cm]{Figures/figure_5.png}
+	\caption{Histogram for Privileged Group}
+	\label{fig:figure_5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=6cm]{Figures/figure_6.png}
+	\caption{Histogram for Unpriviledged Group}
+	\label{fig:figure_6}
+\end{figure}
+
+\subsection{Bias Mitigation Results}
+\begin{itemize}
+    \item 1. The threshold for the priviledged group is 35, while the unprivileged group is 40.
+    \item 2. The profit is 85600
+\end{itemize}
+
+\subsection{Document your results}
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\hline
+\textbf{group} & \textbf{Privileged (Young)} & \textbf{Unprivileged (Old)} \\ 
+\textbf{} & & \\ \hline
+Unfavorable (Declined) & 960 & 415 \\ 
+Favorable (Approved) & 9507 & 4118 \\ \hline
+\end{tabular}
+\caption{Group Outcomes by Privilege Status (Alternative)}
+\label{tab:group_outcomes_alt}
+\end{table}
+
+
+\section{Post Bias Mitigation Analysis}
+    For both fairness metrics in Step 5, the privileged (young) and unprivileged (old) groups had almost the same outcomes. Disparate Impact from Demographic Parity is 0.9969, so the approval rates were nearly equal with about 92.2\% for young and 91.9\% for old group. Equal Opportunity was also very close, the True Positive Rate difference was only about 0.0022, meaning that among the people who did not default (Y = 0), both age groups were approved at almost the same rate. Overall, Step 5 did not show a big difference in outcomes between the privileged and unprivileged groups.
+
+    The Step 6 mitigation showed slight improvement, and mainly for fairness on Disparate Impact. By using different thresholds of 35 for young and 40 for old group, Disparate Impact improved from 0.9969 to 1.0002, and the approval rates became even closer with both groups being around 90.8\%. Because there was ony a little bias to begin with, neither group gained a large advantage. Both groups were approved a bit less often than under the single threshold of 25, and total profit dropped from 86335 to 85600. So the mitigation made the groups more equal, but it also made approval stricter for both, with a small tradeoff in profit.
+
+    One issue with this method is that using different thresholds by age can itself look unfair or even illegal under credit rules like ECOA, because age is a protected class and the bank would be applying different thresholds on purpose resulting in age bias. Another issue is that Disparate Impact only matches approval rates, it does not guarantee better decisions for people who are truly good or bad credit risks. Also, raising thresholds to make rates match can reduce overall approvals and profit even when bias was already small, increasing Disparate Impact may not be worth the tradeoff. Finally, the result depends on how groups and thresholds are chosen, so the method may not work the same way on new data
+
+
+\begin{thebibliography}{2}
+
+\bibitem{eeoc_guidelines}
+U.S. Equal Employment Opportunity Commission. (1979, March 2). ``Questions and answers to clarify and provide a common interpretation of the uniform guidelines on employee selection procedures.'' \textit{EEOC}. 
+\textsc{url}: \url{https://www.eeoc.gov/laws/guidance/questions-and-answers-clarify-and-provide-common-interpretation-uniform-guidelines}.
+
+\bibitem{d_aquin_2024}
+d'Aquin, G. M. (2024). ``Algorithmic fairness: a comprehensive survey.'' \textit{AI and Ethics}. 
+\textsc{url}: \url{https://link.springer.com/article/10.1007/s43681-024-00541-3}.
+
+\end{thebibliography}
+\printbibliography[heading=none]
+
+\end{document}

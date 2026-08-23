@@ -1,0 +1,146 @@
+\documentclass[
+	%a4paper, % Use A4 paper size
+	letterpaper, % Use US letter paper size
+]{jdf}
+
+\addbibresource{references.bib}
+
+\author{Kha Kein “Luke” Cheng}
+\email{Kcheng314@gatech.edu}
+\title{Performance Evaluation of a Manual Trading Strategy and a Random Forest Strategy Learner}
+\usepackage{caption}
+\captionsetup{justification=centering}
+\begin{document}
+%\lsstyle
+
+\maketitle
+
+\begin{abstract}
+	This paper evaluates the performance of a human-designed Manual Strategy versus an artificial intelligence Strategy Learner applied to JPM stock. We analyze their profitability across both in-sample (2008-2009) and out-of-sample (2010-2011) periods using three technical indicators: Bollinger Bands \%B, RSI, and MACD Histogram. Also, we investigate how changing transaction costs like market impact affects the trading behavior and cumulative return of the machine learning model.
+\end{abstract}
+
+\section{Introduction}
+Computers can trade stocks by following a set of logic-based rules or by using artificial intelligence, which helps take human emotion out of calculation and spots opportunities that humans might miss. Behind the scene, these systems rely on technical indicators to predict where a stock might go next. This project compares two different approaches to algorithmic trading. The first is a Manual Strategy, which uses indicator thresholds to create strict rules for buying and selling. The second is a Strategy Learner, which uses a Random Forest machine learning model to discover the best trading rules on its own. By comparing these two methods against a simple buy-and-hold benchmark, we can evaluate whether a machine can learn to trade better than a human, and see how well both strategies perform in new, unseen market conditions.
+
+\section{Discussion}
+\subsection{Indicators Overview}
+\subsubsection{Overview}
+
+For this project, I used three technical indicators: BB \%B, Relative Strength Index (RSI), and the MACD Histogram. These indicators were selected because they measure different market dimensions such as Trend/Momentum, Mean Reversion, and Overbought/Oversold conditions.
+
+Bollinger Bands Percentage \%B (BBP) is implemented by first calculating a 20-day Simple Moving Average (SMA) and a rolling standard deviation. The upper and lower bands are set at 2 standard deviations from the SMA. The \%B value is then calculated as the current price's position relative to these bands: (Price - Lower Band) / (Upper Band - Lower Band) (\cite{stockcharts_bb}).This results in a value where 1.0 is the upper band and 0.0 is the lower band.
+
+Relative Strength Index (RSI) is implemented using a 14-day window and Wilder’s Smoothing method. It calculates the ratio of average price gains to average price losses over the period. The final formula, 100 - (100 / (1 + RS)), creates an oscillator that moves between 0 and 100, helping to identify when a stock is over-extended in either direction (\cite{stockcharts_rsi}).
+
+The MACD Histogram is implemented by calculating two Exponential Moving Averages (EMA) with 12-day and 26-day windows. The difference between these is the MACD line. A 9-day EMA of the MACD line is then calculated as the Signal line. The Histogram is the final result of subtracting the Signal line from the MACD line, which helps identify changes in trend strength and direction (\cite{dolan2025}).
+
+\subsubsection{How the parameters for each indicator that are optimized in both Manual Strategy and Strategy Learner.}
+
+In the Manual Strategy, the optimized parameters were the entry and exit thresholds for each indicator. I optimized the BBP levels to 0.3 and 0.7, RSI threshold to 50 and for MACD Histogram, I optimized the signal by looking for crossings above or below zero. These values were chosen through iterative testing to maximize in-sample performance. 
+
+In the Strategy Learner, the learner uses the same indicator parameters but optimizes the trading policy using a Random Forest model. Instead of picking fixed thresholds, the learner uses the raw values of the indicators and labels them based on whether the future return is high enough to cover the market impact. The model then learns which indicator patterns are strong enough to make a profit after paying the impact costs.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=6cm]{Figures/ManualStrategy_in_sample.png}
+	\caption{Manual Strategy vs Benchmark with In-of-Sample Period}
+	\label{fig:figure_2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=6cm]{Figures/ManualStrategy_out_sample.png}
+	\caption{Manual Strategy vs Benchmark with Out-of-Sample Period}
+	\label{fig:figure_2}
+\end{figure}
+
+\subsection{Manual Strategy}
+\subsubsection{How indicators are used to created signals}
+
+The indicators were combined using a simple AND logic with IF statement to ensure the strategy remained consistent and robust. A LONG signal is generated if the stock is oversold, where BBP < 0.3, RSI < 50 and the MACD Histogram is positive. A SHORT signal is generated if the stock is overbought,  where BBP > 0.7, RSI > 50, and the MACD Histogram is negative.
+
+To enter a position, the strategy checks the current holding. If a LONG signal occurs, it buys enough shares to reach +1000. If a SHORT signal occurs, it sells enough shares to reach -1000.
+
+\subsubsection{Manual Strategy vs Benchmark}
+
+In the in-sample period (2008-2009), the Manual Strategy significantly outperformed the benchmark. As shown in Figure 1,  the Manual Strategy was able to make profit during 2008 market crash beginning on October by making SHORT trades utilizing the thresholds. The benchmark experienced much larger loss because it simply held the stock from beginning to the end.
+
+In the out-of-sample period (2010-2011), the Manual Strategy also performed very well and stayed above the benchmark for most of the period. As shown in Figure 2, the Manual Strategy) is consistently higher than the Benchmark. This is a great result because it shows that the thresholds used for 2008-2009 are still very effective on new data from 2010-2011.
+
+\subsubsection{Performance Evaluation in out-of-sample Period}
+
+The performance in the out-of-sample period was evaluated using the exact same thresholds and logic developed for the in-sample period. Even though the rules were tuned based on 2008-2009 data, the strategy still performed well on data in 2010-2011. This shows that the indicator thresholds chosen are robust and can work in different market conditions.
+
+\subsubsection{Occurrence of Performance Differences}
+
+The performance differences occur because of the differences in the data. The 2008-2009 period had more extreme price swings, which allowed the strategy to find more profitable entry and exit points. In the 2010-2011 period, the market was more stable, so the strategy traded less frequently as no trade will be executed until it meets the threshold of all 3 indicators. However, it still managed to beat the benchmark by avoiding bad trades during the initial market fluctuations during mid 2011.
+
+
+\subsection{Strategy Learner}
+\subsubsection{Steps taken to frame trading problem}
+
+To frame the trading problem for the Random Forest learner, the input was the three technical indicators and the output was a classification label for trade action with consideration of impact and commission. If the price 10 days in the future was higher than the current price plus the impact cost and commission percentage, the label was +1 (Buy). If it was lower than the price minus the impact and commission percentage, the label was -1 (Sell). Otherwise, the label was 0 (Hold). This way, the learner was trained to only trade when it expected a big enough price move to cover all the transaction costs.
+
+\subsubsection{How Hyperparameters were determined}
+
+The hyperparameters for the Strategy Learner include a leaf\_size of 10 and using 20 bags for the BagLearner. The learner uses a Random Tree Learner as its base. These values were chosen through testing to find the best balance between performance and stability. A leaf\_size of 10 helps the model capture enough detail for better performance while still preventing the trees from memorizing every day's noise.
+
+\subsubsection{How Data was discretized}
+
+The data was not discretized because Random Forest learners can handle continuous decimal values directly. However, the output predictions were discretized using np.round() and np.clip() in the test phase. This was necessary to ensure the final positions were always exactly -1000, 0, or +1000 shares, as required by the project rules, otherwise, the numbers would be fractional decimals that lead to errors.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=6cm]{Figures/experiment_1_in_sample.png}
+	\caption{Experiment 1 in-of-sample period}
+	\label{fig:figure_3}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=6cm]{Figures/experiment_1_out_sample.png}
+	\caption{Experiment 1 out-of-sample period}
+	\label{fig:figure_4}
+\end{figure}
+
+\subsection{Experiment 1}
+\subsubsection{Overview}
+
+Experiment 1 compares the Manual Strategy, Strategy Learner, and Benchmark on JPM stock. The experiment uses a starting cash of \$100,000, a commission of \$9.95, and a market impact of 0.005. The initial hypothesis was that the Strategy Learner would outperform the Manual Strategy in-sample because it can optimize its policy based on the data, but the performance might drop with out-of-sample.
+
+\subsubsection{Outcome}
+
+As shown in Figure 3, the Strategy Learner achieved a much higher cumulative return than the Manual Strategy and the Benchmark. This is expected with in-sample data because the learner is allowed to see the training data labels. This causes the model to memorize the specific price patterns of the 2008-2009 period and create a near perfect trading strategy for those specific dates.
+
+However, Figure 4 shows that the Strategy Learner performs worse in the out-of-sample period. This is an example of overfitting. Because the learner's trees were so focused on the specific noise and patterns of the in-sample data, the rules it learned did not work as well on the new data from 2010-2011. The Manual Strategy was more robust in this case because its simple rules worked better in both time periods.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=6cm]{Figures/experiment2_trades.png}
+	\caption{Experiment 2 Effect on Number of Trades}
+	\label{fig:figure_5}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[height=6cm]{Figures/experiment2_portfolio.png}
+	\caption{Experiment Effect on Portfolio values}
+	\label{fig:figure_6}
+\end{figure}
+
+\subsection{Experiment 2}
+\subsubsection{Effect of changing the value of impact}
+
+The hypothesis for Experiment 2 is that as market impact increases, the Strategy Learner will trade less often and the return will decrease. This is because every trade has an impact cost, so the learner should learn to only trade when the expected profit is big enough to cover that cost.
+
+I tested this using six impact values: 0.0, 0.005, 0.01, 0.03, 0.07, and 0.1. The two metrics measured were the total number of trades and the final cumulative return. The experiment was conducted on the JPM in-sample period with a commission of \$0.00 to isolate the effect of the impact parameter.
+
+As shown in Figure 5, the number of trades initially rises but then drops significantly as impact reaches 0.1. This is because the learner realizes that most price moves are not big enough to cover a 10\% impact cost. 
+
+As shown in Figure 6, the return first crashes but then starts to recover slightly at very high impact levels. This recovery happens because the learner has become smarter to stop trading as much, which saves the portfolio from losing money on expensive trades. This proves that the learner is successfully factoring in transaction costs into its decision-making process and shows the clear effect that impact has on trading performance.
+
+
+\section{References}
+\printbibliography[heading=none]
+
+\end{document}
